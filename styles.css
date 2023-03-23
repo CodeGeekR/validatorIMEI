@@ -1,0 +1,74 @@
+.verificador-imei {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .verificador-imei h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .imei-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .imei-input-container input {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .imei-input-container input::placeholder {
+    color: #ccc;
+  }
+  
+  .imei-input-container .counter {
+    background-color: #fff;
+    border-radius: 50%;
+    color: #888;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+  }
+  
+  #validate-btn {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #validate-btn:hover {
+    background-color: #3e8e41;
+  }
+  
+  #validate-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  #validate-btn:focus {
+    outline: none;
+  }
