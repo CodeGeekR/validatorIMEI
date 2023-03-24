@@ -1,3 +1,8 @@
+/* La función toma un número como argumento, convierte sus dígitos en un arreglo 
+y realiza una suma de verificación utilizando la fórmula de Luhn. 
+Si el resultado de la suma es divisible por 10, el número es válido según la fórmula de Luhn 
+y la función devuelve true. De lo contrario, devuelve false.*/
+
 function luhnCheck(num) {
   var arr = (num + "").split("").reverse();
   var sum = 0;
@@ -14,18 +19,22 @@ function luhnCheck(num) {
   return sum % 10 === 0;
 }
 
+/*La función gsmaCheck valida si un número IMEI dado cumple con los rangos de números aprobados por la GSMA.*/
+
 function gsmaCheck(imei) {
   var gsmaRanges = [
-    [12000, 15999],
-    [100000, 389999],
-    [440000, 449999],
-    [490000, 499999],
-    [700000, 799999],
-    [880000, 919999],
-    [930000, 989999],
-    [990000, 999999],
+    [1, 1],
+    [10, 19],
+    [20, 29],
+    [30, 39],
+    [44, 49],
+    [50, 59],
+    [60, 69],
+    [70, 79],
+    [80, 89],
+    [90, 99],
   ];
-  var prefix = parseInt(imei.slice(0, 6));
+  var prefix = parseInt(imei.slice(0, 2));
   for (var i = 0; i < gsmaRanges.length; i++) {
     if (prefix >= gsmaRanges[i][0] && prefix <= gsmaRanges[i][1]) {
       return true;
@@ -66,7 +75,7 @@ function validateIMEI(imei) {
   if (!imeiRegex.test(imei)) {
     return false;
   }
-  if (!luhnCheck(imei) || !gsmaCheck(imei.slice(0, 6))) {
+  if (!luhnCheck(imei) || !gsmaCheck(imei.slice(0, 2))) {
     return false;
   }
   return true;
@@ -97,14 +106,9 @@ validateBtn.addEventListener("click", function () {
 
 // Evento de click del botón "Comprobar otro código"
 resetBtn.addEventListener("click", function () {
-  // Mostrar class="imei-input-container" para que el usuario pueda ingresar otro código IMEI
-  imeiContainer.style.display = "block";
-  // Mostrar class="counter" para que el usuario pueda ver el contador de caracteres
-  imeiInput.style.display = "block";
-  counter.style.display = "block";
+  // Mostrar class="imei-input-container" y el "imei-input" para que el usuario pueda ingresar otro código IMEI
+  location.reload();
 
-  // Limpiar el input
-  imeiInput.value = "";
   // Deshabilitar botón "Validar"
   validateBtn.disabled = true;
 
