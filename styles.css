@@ -79,10 +79,26 @@
     outline: none;
   }
 
+  .result-container {
+    display: none;
+  }
+  
+  .result-container.show {
+    display: block;
+    background-color: rgb(139, 213, 139);
+    border: 1px solid #006400;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Agregamos un margen inferior */
+    color: darkgreen;
+    font-family: 'Quicksand', sans-serif;
+  }
+
   #reset-btn {
     display: flex;
     justify-content: center;
     margin-top: 40px; /* Agregamos un margen superior */
+    margin-bottom: 20px; /* Agregamos un margen superior */
     background-color: #0f76eb;
     border: none;
     border-radius: 5px;
@@ -107,18 +123,4 @@
   
   #reset-btn:focus {
     outline: none;
-  }
-
-  .result-container {
-    display: none;
-  }
-  
-  .result-container.show {
-    display: block;
-    background-color: rgb(139, 213, 139);
-    border: 1px solid #006400;
-    padding: 10px;
-    margin-top: 10px;
-    color: darkgreen;
-    font-family: 'Quicksand', sans-serif;
   }
