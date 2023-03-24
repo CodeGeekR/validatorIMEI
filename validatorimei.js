@@ -88,7 +88,13 @@ validateBtn.addEventListener("click", function () {
   if (validateIMEI(imei)) {
     resultContainer.innerText = "El IMEI es correcto";
     resultContainer.style.color = "green";
+    // Agregamos el fondo verde claro suave al mensaje de resultado
+    resultContainer.style.backgroundColor = "#D4EDDA";
     imeiContainer.replaceWith(resultContainer);
+
+    // Ocultar título "Call IMEI"
+    const callIMEI = document.getElementById("callIMEI");
+    callIMEI.style.display = "none";
 
     // Mostrar botón "Comprobar otro código"
     showCheckAnotherBtn();
@@ -96,6 +102,7 @@ validateBtn.addEventListener("click", function () {
     resultContainer.innerText =
       "El IMEI ingresado es inválido. Por favor inténtelo nuevamente.";
     resultContainer.style.color = "red";
+    resultContainer.style.backgroundColor = "mistyrose"; // Cambio de color de fondo rojo claro
     resultContainer.classList.add("show");
     if (resultContainer.parentNode !== null) {
       resultContainer.parentNode.removeChild(resultContainer);
