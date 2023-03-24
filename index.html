@@ -4,20 +4,35 @@
     <meta charset="utf-8" />
     <title>Validator IMEI</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      integrity="sha512-l5r5r5I/InKj6z8U6lLzk6E3NqXpCjKsrnBZV7KjMq3iV7FYn4e1n4Kf4iSS9QOXhzOnhK06ZQFzvHnwLe52sQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div class="verificador-imei">
       <h2>Verificador de IMEI</h2>
       <div class="imei-input-container">
+        <label for="imei-input">IMEI:</label>
         <input
           type="text"
           id="imei-input"
+          name="imei"
           maxlength="15"
-          placeholder="Ingrese su número IMEI de 15 dígitos"
+          placeholder="Ingrese su número IMEI de 15 dígitos:"
+          required
         />
-        <span class="counter">0/15</span>
+        <div class="counter">0/15</div>
       </div>
-      <button id="validate-btn">Validar</button>
+      <button type="submit" id="validate-btn" disabled>Validar</button>
+      <button id="reset-btn" style="display: none">
+        Comprobar otro código
+      </button>
+      <div class="result-container"></div>
     </div>
+    <script src="validatorimei.js"></script>
   </body>
 </html>

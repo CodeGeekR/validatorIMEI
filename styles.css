@@ -13,6 +13,11 @@
     font-size: 24px;
     margin-bottom: 20px;
   }
+
+  .verificador-imei button {
+    display: block;
+    margin: 20px auto 0;
+  }
   
   .imei-input-container {
     display: flex;
@@ -71,4 +76,48 @@
   
   #validate-btn:focus {
     outline: none;
+  }
+
+  #reset-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Agregamos un margen superior */
+    background-color: #0f76eb;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    width: 300px; /* Agregamos un ancho */
+    margin: 0 auto; /* Centramos horizontalmente */
+  }
+  
+  #reset-btn:hover {
+    background-color: #0057b9;
+  }
+  
+  #reset-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  #reset-btn:focus {
+    outline: none;
+  }
+
+  .result-container {
+    display: none;
+  }
+  
+  .result-container.show {
+    display: block;
+    background-color: rgb(139, 213, 139);
+    border: 1px solid #006400;
+    padding: 10px;
+    margin-top: 10px;
+    color: darkgreen;
+    font-family: 'Quicksand', sans-serif;
   }
