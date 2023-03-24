@@ -2,7 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validator IMEI</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css"
+      integrity="sha512-UfEQQbopptW8I2kMFhR9Mdtv1GZMYW8ZCYQwYNO+sz82GJh4yOG4sTmFr3dxMC+onxeyTPtZPdSfCw+13azYw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -13,13 +24,14 @@
     />
   </head>
   <body>
-    <div class="verificador-imei">
+    <div class="verificador-imei my-5">
       <h2>Verificador de IMEI</h2>
       <h3 id="callIMEI">(Haz una llamada con *#06# para ver el IMEI)</h3>
       <div class="imei-input-container">
         <label for="imei-input">IMEI: </label>
         <input
           type="text"
+          class="form-control"
           id="imei-input"
           name="imei"
           maxlength="15"
@@ -28,8 +40,10 @@
         />
         <div class="counter">0/15</div>
       </div>
-      <button type="submit" id="validate-btn" disabled>Validar</button>
-      <button id="reset-btn" style="display: none">
+      <button type="submit" class="btn btn-primary" id="validate-btn" disabled>
+        Validar
+      </button>
+      <button class="btn btn-secondary" id="reset-btn" style="display: none">
         Comprobar otro código
       </button>
       <div class="result-container"></div>
