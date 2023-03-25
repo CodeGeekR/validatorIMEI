@@ -83,7 +83,11 @@ function validateIMEI(imei) {
 }
 
 // Funcion que agrega un evento onkeydown para el campo de entrada IMEI, se activa teclado Numerico. Bloquea ingreso de otras teclas.
-imeiContainer.addEventListener("keydown", function (event) {
+// Agregar atributos pattern e inputmode
+imeiInput.setAttribute("pattern", "[0-9]*");
+imeiInput.setAttribute("inputmode", "numeric");
+
+imeiInput.addEventListener("keydown", function (event) {
   // Solo permitir números, teclas de control y borrar
   if (
     !(
@@ -101,7 +105,7 @@ imeiContainer.addEventListener("keydown", function (event) {
     event.preventDefault();
   }
 });
-imeiContainer.addEventListener("paste", function (event) {
+imeiInput.addEventListener("paste", function (event) {
   // Obtener texto del portapapeles
   const clipboardText = event.clipboardData.getData("text/plain");
   // Solo permitir números
@@ -109,7 +113,7 @@ imeiContainer.addEventListener("paste", function (event) {
     event.preventDefault();
   }
 });
-imeiContainer.addEventListener("input", function (event) {
+imeiInput.addEventListener("input", function (event) {
   // Eliminar cualquier carácter no numérico ingresado
   const input = event.target.value;
   event.target.value = input.replace(/[^0-9]/g, "");
