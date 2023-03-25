@@ -50,6 +50,7 @@ const resetBtn = document.getElementById("reset-btn");
 const imeiContainer = document.querySelector(".imei-input-container");
 const resultContainer = document.createElement("div");
 resultContainer.classList.add("result-container");
+let imeiNumber = null; // Variable para almacenar el número IMEI ingresado
 
 imeiInput.addEventListener("input", function () {
   const count = this.value.length;
@@ -117,15 +118,17 @@ imeiContainer.addEventListener("input", function (event) {
 // Evento de click del botón "Validar"
 validateBtn.addEventListener("click", function () {
   const imei = imeiInput.value.replace(/\D/g, "");
+  imeiNumber = imei; // Asignamos el valor del IMEI ingresado a la variable imeiNumber
 
   if (validateIMEI(imei)) {
-    resultContainer.innerText = "El IMEI es válido";
-    resultContainer.style.color = "green";
+    resultContainer.innerText = "El IMEI " + imeiNumber + " es valido"; // Mostramos el IMEI ingresado en el mensaje de resultado.
+    resultContainer.style.fontWeight = "bold"; // Cambio de estilo de texto a negrita
+    resultContainer.style.color = "green"; // Cambio de color de texto a verde
     // Agregamos el fondo verde claro suave al mensaje de resultado
     resultContainer.style.backgroundColor = "#D4EDDA";
     imeiContainer.replaceWith(resultContainer);
 
-    // Ocultar título "Call IMEI"
+    // Ocultar título "Ayuda para obtener el IMEI"
     const callIMEI = document.getElementById("callIMEI");
     callIMEI.style.display = "none";
 
@@ -169,3 +172,14 @@ function showCheckAnotherBtn() {
   // Mostrar mensaje de resultado y cuadro sombreado
   resultContainer.classList.add("show");
 }
+
+//<!-- Funcion que activa una nueva pestaña para Chat WhatsApp (jQuery para WhatsApp) -->
+function addChatWp() {
+  var botonWhatsApp = document.querySelector(".boton-whatsapp");
+
+  botonWhatsApp.addEventListener("click", function (event) {
+    event.preventDefault();
+    window.open("https://wa.me/+573132007146", "_blank");
+  });
+}
+window.addEventListener("load", addChatWp);

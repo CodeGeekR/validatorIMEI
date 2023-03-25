@@ -140,3 +140,58 @@ h2 {
   #reset-btn:focus {
     outline: none;
   }
+
+  /* BOTON WHATSAPP */
+
+    /* posicion del boton Whatsapp */
+    .boton-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      transition: all 0.3s ease-in-out;
+   }
+   
+   /* Animacion de elevacion*/
+   .boton-whatsapp:hover {
+      transform: translateY(-5px);
+   }
+   
+   @media only screen and (max-width: 600px) {
+      .boton-whatsapp {
+         bottom: 10px;
+         right: 10px;
+      }
+   }
+   
+   /*animación de ondas circulares en movimiento al borde del icono de WhatsApp*/
+   
+   .boton-whatsapp:before {
+     content: "";
+     position: absolute;
+     top: -6px;
+     left: -6px;
+     right: -6px;
+     bottom: -6px;
+     border-radius: 50%;
+     border: 2px solid #333;
+     animation: pulse 2s infinite;
+   }
+   
+   .boton-whatsapp:hover:before {
+     animation-play-state: paused;
+   }
+   
+   @keyframes pulse {
+     0% {
+       transform: scale(1);
+       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+     }
+     70% {
+       transform: scale(1.15);
+       box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+     }
+     100% {
+       transform: scale(1);
+       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+     }
+   }
