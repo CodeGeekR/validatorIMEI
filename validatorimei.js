@@ -81,12 +81,45 @@ function validateIMEI(imei) {
   return true;
 }
 
+// Funcion que agrega un evento onkeydown para el campo de entrada IMEI, se activa teclado Numerico. Bloquea ingreso de otras teclas.
+imeiContainer.addEventListener("keydown", function (event) {
+  // Solo permitir números, teclas de control y borrar
+  if (
+    !(
+      event.key === "ArrowLeft" ||
+      event.key === "ArrowRight" ||
+      event.key === "Backspace" ||
+      event.key === "Delete" ||
+      event.key === "Tab" ||
+      event.key === "Control" ||
+      event.key === "Meta" ||
+      event.key === "Shift" ||
+      (event.key >= "0" && event.key <= "9")
+    )
+  ) {
+    event.preventDefault();
+  }
+});
+imeiContainer.addEventListener("paste", function (event) {
+  // Obtener texto del portapapeles
+  const clipboardText = event.clipboardData.getData("text/plain");
+  // Solo permitir números
+  if (!/^[0-9]*$/.test(clipboardText)) {
+    event.preventDefault();
+  }
+});
+imeiContainer.addEventListener("input", function (event) {
+  // Eliminar cualquier carácter no numérico ingresado
+  const input = event.target.value;
+  event.target.value = input.replace(/[^0-9]/g, "");
+});
+
 // Evento de click del botón "Validar"
 validateBtn.addEventListener("click", function () {
   const imei = imeiInput.value.replace(/\D/g, "");
 
   if (validateIMEI(imei)) {
-    resultContainer.innerText = "El IMEI es correcto";
+    resultContainer.innerText = "El IMEI es válido";
     resultContainer.style.color = "green";
     // Agregamos el fondo verde claro suave al mensaje de resultado
     resultContainer.style.backgroundColor = "#D4EDDA";
